@@ -113,6 +113,7 @@ class TicketCreateSerializer(serializers.ModelSerializer):
         model = Ticket
         fields = ("row", "seat", "movie_session")
 
+
 class OrderSerializer(serializers.ModelSerializer):
     tickets = TicketSerializer(many=True)
 
@@ -131,7 +132,6 @@ class OrderSerializer(serializers.ModelSerializer):
             Ticket.objects.create(order=order, **ticket)
 
         return order
-
 
 
 class OrderListSerializer(OrderSerializer):
